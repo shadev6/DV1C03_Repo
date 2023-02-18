@@ -12,7 +12,6 @@ pipeline {
            steps {
                 sh(script:"""                    
                     docker run -d -it -p 42000:8080 --name=S2_20065334_Server 20065334_webimage /bin/sh
-                    docker rm -f S2_20065334_Server
                 """)    
            
                 echo "S2_20065334 : Web Server Creation Completed"
