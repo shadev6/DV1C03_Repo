@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+       stage('Stage1_20065334') {
+           steps {
+               echo "S1_20065334 : Environment Preparation Completed"
+           } 
+       }
+        
+       stage('Stage2_20065334') {
+           steps {
+                echo "S2_20065334 : Web Server Creation Completed"
+           }
+       }
+       
+      stage('Parallel'){
+          parallel{
+              stage('Stage3_20065334') {
+                 steps {
+                    echo "S3_20065334 : API Test Completed"
+                 } 
+              }   
+              stage('Stage4_20065334') {
+                 steps {
+                    echo "S4_20065334 : FileTest Completed"
+                 } 
+              }  
+          }
+      }
+ 
+      stage('Stage5_20065334') {
+           steps {
+               input('Do you want to release the work?') 
+           } 
+       }
+       
+       stage('Stage6_20065334'){
+           steps{
+                 echo "Work Released - 20065334"  
+           }
+       }
+    }
+}
